@@ -12,7 +12,7 @@ class CarManager(Turtle):
         self.hideturtle()
         self.cars = []
         self.random_location()
-        self.move_speed = 0.1
+        self.speed_move = 5
 
     def random_location(self):
         random_choice = random.randint(1, 6)
@@ -28,8 +28,9 @@ class CarManager(Turtle):
 
     def car_move(self):
         for car in self.cars:
-            car.forward(STARTING_MOVE_DISTANCE)
-
+            car.forward(self.speed_move)
 
     def increase_speed(self):
-        self.move_speed *= .9
+        self.speed_move += 5
+        for car in self.cars:
+            car.forward(self.speed_move)
